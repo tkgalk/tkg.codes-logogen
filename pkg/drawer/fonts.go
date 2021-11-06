@@ -21,7 +21,7 @@ func loadFont(dc *gg.Context, fontname string) error {
 
 // DrawText draws a string s with the color c in with a given fontname at the given lMargin while wrapping it at rMargin.
 // Font root path is taken from FontRootPath variable.
-func DrawText(dc *gg.Context, s, c, fontname string, lMargin, rMargin, yOffset float64) error {
+func DrawText(dc *gg.Context, s, c, fontname string, lMargin, rMargin, yOffset, ax float64) error {
 	err := loadFont(dc, fontname)
 	if err != nil {
 		return errors.Wrap(err, "\n\tfailed drawing text")
@@ -31,7 +31,7 @@ func DrawText(dc *gg.Context, s, c, fontname string, lMargin, rMargin, yOffset f
 	maxWidth := float64(dc.Width()) - lMargin - rMargin
 
 	dc.SetHexColor(c)
-	dc.DrawStringWrapped(s, lMargin, y, 0, 1, maxWidth, 1.5, gg.AlignLeft)
+	dc.DrawStringWrapped(s, lMargin, y, 0, ax, maxWidth, 1.5, gg.AlignLeft)
 
 	return nil
 }

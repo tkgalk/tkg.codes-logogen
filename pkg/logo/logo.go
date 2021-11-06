@@ -1,9 +1,9 @@
 package logo
 
 import (
+	"errors"
 	"github.com/fogleman/gg"
 	"github.com/galkowskit/generate-cover-image/pkg/drawer"
-	"github.com/pkg/errors"
 )
 
 // Width is the whole rectangle width.
@@ -75,7 +75,7 @@ func drawRectangles(dc *gg.Context) error {
 }
 
 func drawTitle(dc *gg.Context, s string) error {
-	err := drawer.DrawText(dc, s, "#5A67D8", "Ubuntu-Medium.ttf", 480.0, TextRightMargin, 0.0)
+	err := drawer.DrawText(dc, s, "#5A67D8", "Ubuntu-Medium.ttf", 480.0, TextRightMargin, 0.0, 1)
 	if err != nil {
 		return errors.Wrap(err, "\n\tfailed drawing title")
 	}
@@ -84,7 +84,7 @@ func drawTitle(dc *gg.Context, s string) error {
 }
 
 func drawSubtitle(dc *gg.Context, s string) error {
-	err := drawer.DrawText(dc, s, "#000000", "Ubuntu-Light.ttf", 480.0, TextRightMargin, 45.0)
+	err := drawer.DrawText(dc, s, "#000000", "Ubuntu-Light.ttf", 480.0, TextRightMargin, 45.0, 0)
 	if err != nil {
 		return errors.Wrap(err, "\n\tfailed drawing subtitle")
 	}
