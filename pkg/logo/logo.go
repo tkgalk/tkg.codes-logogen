@@ -1,9 +1,9 @@
 package logo
 
 import (
-	"errors"
 	"github.com/fogleman/gg"
 	"github.com/galkowskit/generate-cover-image/pkg/drawer"
+	"github.com/pkg/errors"
 )
 
 // Width is the whole rectangle width.
